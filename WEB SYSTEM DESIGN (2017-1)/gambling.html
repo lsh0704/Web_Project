@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>갬블링 게임</title>
+<style>
+table {
+	border : 1px solid violet;
+	border-collapse : collapse; 
+}
+td {
+	width : 50px;
+	height : 50px;
+	padding : 0px;
+	font : italic 50px consolas, sans-serif;
+	color : blue;
+	text-align : center;
+	background : linen;
+}
+div#msg {
+	font : italic 18px consolas, sans-serif;
+	color : magenta;
+	margin-top : 10px;
+}
+</style>
+<script>
+var gameon = true; // 게임이 진행 중이면 true
+var gameArray = [0, 0, 0]; // 3 개수 숫자 저장
+var count = 0; //1,2,3번째 수 클릭할 때 count++
+var already = [0, 0, 0]; //이미 클릭한 자리는 count에 미포함 하도록 확인 (같은 수 중복 클릭 금지)
+
+function gen(e) { //난수 생성 부분
+	//if문을 사용(gameon변수 사용).. 게임이 진행중인지 확인(게임 진행중 아니면 return)
+	if (gameon==true) ;
+	else return;
+
+	//var n = Math.floor을 사용하여 0~2 사이의 10진 난수 생성
+	var n= Math.floor(Math.random()*3);
+	//var obj=e.target		사용...교재 393 / 예제 9-6
+	var obj=e.target;
+
+	//innerHTML을 사용해서 n 할당 / 교재 395, 358 / 예제 8-3, 8-10
+	var td = document.getElementById(obj.id);
+	if (td.id=="first" && already[0]==0)
+	{
+		td.innerHTML = n;
+		already[0]=1;	
+		gameArray[0]=n;
+		count++;
+	}
+	else if (td.id=="second" && already[1]==0)
+	{
+		td.innerHTML = n;
+		already[1]=1;
+		gameArray[1]=n;
+		count++;
+		
+	}
+	else if (td.id=="third" && already[2]==0)
+	{
+		td.innerHTML = n;
+		already[2]=1;
+		gameArray[2]=n;
+		count++;
+		
+	}
+	
+
+	//obj의 id를 가지고 몇번째 부분인지 확인
+
+	//if문 사용해서 첫번째 난수 생성 (gameArray[0]에 난수 할당)
+	//else if문 사용해서 두번째  난수 생성 (n을 gameArray[1]에 난수 할당)
+	//else문 사용해서 세번째  난수 생성 (n을 gameArray[2]에 난수 할당)
+	
+		//var divMsg = msg 라는 id가진 아이를 할당
+		var divMsg = msg;
+
+		//if문을 사용해서 첫번째와 두번째를 비교 && 두번째와 세번째 비교
+			//같음 - "Success....." 출력 -- divMsg.innerHTML사용
+			//다름 - "Fail....." 출력 -- divMsg.innerHTML사용	
+		if (count == 3) 
+		{
+			if (gameArray[0]==gameArray[1])
+			{
+				if (gameArray[1]==gameArray[2])
+				{
+					divMsg.innerHTML = "Success(click here to do\nagain)";
+				}
+				else divMsg.innerHTML = "fail(click here to do\nagain)";
+			}
+			else divMsg.innerHTML = "fail(click here to do\nagain)";
+		}
+
+	if (count>=3) gameon=false; //세번 수 클릭 시 게임중단이므로 false
+}
+function reset() { //초기화
+	//for문을 사용하여 3개의 수(gameArray)를 모두 0으로 초기화
+	for (var i=0; i<gameArray.length; i++)
+	{
+		gameArray[i]=0;
+	}
+
+	//id를 가지고 첫번째-세번째 부분을 innerHTML사용해서 0으로 초기화
+	first.innerHTML="0";
+	second.innerHTML="0";
+	third.innerHTML="0";
+	
+	//id값이 msg를 innerHTML사용해서 초기화("")
+	msg.innerHTML="";
+
+	count=0;
+	for (i=0; i<already.length; i++)
+	{
+		already[i]=0;
+	}
+	
+	gameon=true;
+}
+</script>
+</head>
+<body>
+<h3>갬블링 게임</h3>
+각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.
+<hr>
+<table>
+	<tr id="game">
+	<td id="first" onclick="gen(event)">0</td>
+	<td id="second" onclick="gen(event)">0</td>
+	<td id="third" onclick="gen(event)">0</td>
+	</tr>
+</table>
+<div id="msg" onclick="reset()"></div>
+</body>
+</html>

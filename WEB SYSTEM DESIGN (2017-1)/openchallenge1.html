@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 페이지의 구성 요소</title>
+<style>
+	body { background-color : #efffe8; color : blue;
+				margin-left : 40px; margin-right : 40px;}
+	h3 { text-align : center; color : green;}
+	hr { height : 5px; border : solid #d8e8e8; 
+				background-color : #d8e8e8 }
+	span { color: pink; font-size: 20px; }
+</style>
+<script>
+	function show() { // <img>에 이미지 달기
+		document.getElementById("fig").src = "NOONSONG.gif"
+	}
+	function hide() { // <img>에 이미지 제거
+		document.getElementById("fig").src= "";	
+	}
+</script>
+</head>
+<body>
+<h3 onmouseover="show()" onmouseout="hide()">임소희</h3>
+<hr>
+<div><img id="fig" src=""></div>
+저는 대한민국에서 태어나서 컴퓨터 공학을 전공하는 학생입니다.
+제가 제일 좋아하는 과목은 <span>웹프로그래밍</span>이고,
+그중에서도 <span>자바스크립트</span>를 제일 잘합니다.
+</body>
+</html>

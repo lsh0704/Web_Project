@@ -1,0 +1,10 @@
+//데이터 베이스 생성
+CREATE DATABASE websysdb default character set utf8 collate utf8_general_ci;
+
+
+//데이터베이스에 member 테이블 생성
+CREATE TABLE member(id char(10) PRIMARY KEY, name char(10),  password char(20), email char(50), registerDate Datetime);
+
+
+//삽입
+INSERT INTO member (id, name, password, email, registerDate)Values ('aaa', '그레이트', 1083, 'dd@naver.com', 170601);
