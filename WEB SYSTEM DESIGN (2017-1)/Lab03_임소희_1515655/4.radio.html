@@ -1,0 +1,22 @@
+<html>
+ <head>
+ <!-- 자바스크립트 시작 -->
+	 <script type="text/javascript">
+		function check(app)
+		{
+			alert(app.value+"를 선택하셨습니다.");
+		}
+	 </script>
+ <!-- 자바스크립트 끝 -->
+ </head>
+ 
+<body>
+	<form name="form1">
+		radio객체 예제<br />
+		지원분야를 선택하세요<br /><br />
+		영업 <input type="radio" name="apply" value="영업" onclick="check(this);" /> &nbsp;&nbsp;
+		총무 <input type="radio" name="apply" value="총무" onclick="check(this);" /> &nbsp;&nbsp;
+		관리 <input type="radio" name="apply" value="관리" onclick="check(this);" /> <br />
+	</form>
+</body>
+</html>

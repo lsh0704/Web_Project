@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Survey</title>
+  <style>
+	h1 { 
+		color : #005766;
+		text-align : center;
+	}
+
+	span {
+		color : #2F9D27;
+		font-weight : 900;
+	}
+
+  </style>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+ </head>
+ <body bgcolor="#F6F6F6">
+	<h1><b>설 문 지</b></font></h1>
+	<center>소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.</center>
+	<h4 style="font-family:휴먼편지체"><설문의 목적></h4>
+	<ul style="font-family:휴먼편지체">
+		<li>학문 발전
+		<li>취업률 조사
+		<li>소프트웨어 이해도 확인
+	</ul>
+	<hr color="green"></hr>
+
+	<form>
+
+	<ol type="1">
+		<li><span>이름 및 학년&nbsp;</span>
+		<input type="text" size="10" autofocus required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select id="ss">
+			<option>1학년</option>
+			<option>2학년</option>
+			<option>3학년</option>
+			<option>4학년</option>
+		</select>
+
+		<p><li><span>성별&nbsp;</span>
+			<input type="radio" name="gender" value="1"> 남&nbsp;
+			<input type="radio" name="gender" value="2" checked> 여
+		</p>
+		
+		<p><li><span>관심 분야&nbsp;</span>
+			<input type="text" list="major">
+			<datalist id="major">
+				<option value="모바일 소프트웨어">
+				<option value="네트워크">
+				<option value="보안">
+				<option value="컴퓨터 그래픽스">
+			</datalist>
+		</p>
+
+		<p><li><span>진로(다중 선택)&nbsp;</span>
+			<input type="checkbox" value="1">개발&nbsp;&nbsp;
+			<input type="checkbox" value="2">기획&nbsp;&nbsp;
+			<input type="checkbox" value="3">영업&nbsp;&nbsp;
+			<input type="checkbox" value="4">창업&nbsp;&nbsp;
+		</p>
+
+		<p><li><span>남기고 싶은 말 및 사진&nbsp;</span>
+			<TEXTAREA ROWS="8" COLS="100" NAME="Introduce" placeholder="글을 남겨주세요"></TEXTAREA>
+			&nbsp;<input type="file" id="myFile">
+		</p>
+
+		<p><li><span>홈페이지 주소&nbsp;</span>
+			<input type="url" size="30" placeholder="http://" required>
+		</p>
+
+		<p><li><span>나이&nbsp;</span>
+			<input type="number" min="5" max="80" step="1" value="5" required>
+		</p>
+
+		<p><li><span>용돈&nbsp;</span>
+			5만원 <input type="range" min="5" max="100" list="money"> 100만원
+			<datalist id="money">
+				<option value="10" label="Low">
+				<option value="53" label="Medium">
+				<option value="95" label="High">
+			</datalist>
+		</p>
+
+		<p><li><span>생일&nbsp;</span>
+				<input type="date" value="1980-01-01" min="1980-01-01" max="2017-03-19"> 
+		</p>
+
+		<p><li><span>좋아하는 색상&nbsp;</span>
+		<input type="color" value="#00BFFF">
+		</p>
+	</ol>
+
+		<p><center><input type="button" value="전송"></center></p>
+	</form>
+</body>
+</html>
+

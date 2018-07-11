@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메인</title>
+<style type="text/css">
+@font-face{
+	font-family: "NanumBrush";
+	src : url("font/NanumBrush.eot"); /* IE */
+	src:local('☺'), 
+	url("font/NanumBrush.woff") format("woff"), /* FF, CH */
+    url("font/NanumBrush.ttf") format("truetype"); /* FF, CH, SF, OP */
+}
+
+body{
+   background-image: url(img/back.png); /* 백그라운드 이미지를 지정 */
+   margin: 0;                           /* 바깥쪽 여백을 없앰 */
+   padding: 0;                          /* 안쪽 여백을 없앰 */
+   font-size: 0.75em;                   /* 글꼴 크기 */
+   line-height: 1.2em;                  /* 줄 간격 */
+   color: #333;                         /* 글꼴 색상 */
+   font-family: NanumBrush, 'Trebuchet MS', Verdana, Geneva, sans_serif;
+}
+
+#wrap{   
+   /* 1024 × 768 해상도에 맞추어 웹 페이지 크기 지정*/   
+   width : 971px; 
+   /* 백그라운드 이미지 적용 */
+   background-image: url(img/shadow.png);
+   background-repeat: repeat-y;
+   /* 중앙에 배치 */
+   margin: 0;
+   margin-right: auto; 
+   margin-left: auto;
+   text-align: left;               /*텍스트를 왼쪽에 배치*/
+   /* 페이지에 출력할 내용이 없어도 최소 높이는 780px */
+   min-height: 780px;
+}
+
+#title h1, #title h2{
+   display: none;                   /*헤드라인 숨김 */
+}
+
+#ceil{                              /* 웹 페이지를 상단에 이미지 출력 */
+   width: 952px;
+   height: 60px;
+   margin: 0 0 0 10px;
+   background-image: url(img/ceil.PNG);
+   background-repeat: repeat-x;    /*  가로 방향으로 반복 */
+} 
+ 
+#logo{                             /*  로고 이미지  */
+   float: left;                    /* 화면 왼쪽에 배치 */
+   width: 256px;
+   height: 100px;
+   margin: 20px 0 0 40px;
+}
+
+/*리스트로 메인 메뉴 만들기*/
+nav#top_menu{
+   float: left;
+   width: 600px;
+   margin-top: 20px;
+}
+
+nav#top_menu ul{
+   list-style-type: none;
+   font-size: 24px;
+   font-weight: bold;
+}
+
+nav#top_menu ul li{
+   float: left;
+   margin: 0 15px;
+}
+
+nav#top_menu a{
+   text-decoration: none;
+   color: #333;
+   display: block;
+   height: 20px;
+}
+
+nav#top_menu a:HOVER{
+   color: #FFB6C1;
+   font-size: 25px;
+}
+
+.clear{
+   clear: both;
+}
+
+/* 서브 메뉴  구성하기 */
+#sub_menu{
+	width: 238px;
+	float: left;
+	font-size: 1.7em;
+}
+
+#sub_menu ul{
+	list-style: none;
+	margin: 0 0 0 20px; /*상 좌*/
+}
+
+#sub_menu a{
+	text-decoration: none;
+	color: #666;
+	display: block;
+	height: 15px;
+	width: 150px;
+	padding: 7px;
+	border-bottom: 1px dotted #999;
+	background-image: url(img/bullet.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+#sub_menu a:HOVER {
+	color: #FFB6C1;
+	font-weight: bold;
+}
+
+/* 콘덴츠 설정하기 */
+#sub_section {	
+	float: right;
+	width: 650px;
+	padding-right: 30px;
+}
+
+#sub_section h1{
+	padding-left: 60px;
+	font-size: 50px;
+	color: #FFB6C1;
+	text-shadow:1px 1px 3px #003399;
+}
+
+#sub_section h1:HOVER{
+	color: #002266;
+}
+
+@font-face{
+	font-family: ROCK;
+	src: url('font/ROCK.TTF');
+}
+
+#sub_section article p{
+	font-family: ROCK, 'Trebuchet MS', Veridana, Geneva, sans_serif;
+	font-size: 1.2em;	
+	line-height: 1.5em;
+}
+
+figure.history{
+	float: right;
+	margin: 5px 5px 5px 15px;	
+}
+
+/* 푸터 */
+footer{
+	margin: 50px 0 0 0;
+	height: 80px;
+	background-image: url(img/new_footer_logo.PNG);
+	background-repeat: no-repeat;
+	background-position: 40px center;	
+}
+
+footer hr{
+	width: 900px;
+	margin: 0 0 0 10px;
+}
+
+footer #copyright{
+	font-family: NanumBrush, 'Trebuchet MS',Veridana, Geneva, sans_serif;
+	font-size: 18px;
+	width: 560px;
+	margin: 20px 0 0 220px;
+	float: left;
+}
+
+footer #social{
+	width: 130px;
+	margin: 20px 20px 0 0;
+	float: right;
+}
+
+footer #social img{
+	width: 33px;
+	height: 33px;
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<header id="sub_header">
+	    <div id="ceil"></div>
+		<div id="logo">
+			<a href="lab01_main.html"><img id="#" src="img/new_logo.PNG" width="240" height="80"></a>			
+		</div>
+		
+						
+		<nav id="top_menu">
+			<ul>
+				<li><a href="lab01_main.html">HOME</a></li>
+				<li><a href="introduce.html">자기소개</a></li>
+				<li><a href="timetable.html">시간표</a></li>
+			</ul>
+		</nav>
+	</header>		
+	<div class="clear"></div>
+	
+	<nav id="sub_menu">
+		<ul>
+			<li><a href="lab01_main.html">HOME</a></li>				
+
+		</ul>
+	</nav>
+	       
+	<section id="sub_section">
+		   <h1>Lab01. 자신의 홈페이지 만들기</h1>
+		   
+		   <article>
+		   		<figure class="history">
+		   			</figure>
+			    
+			    <p>&nbsp;
+				     1. 자기소개 메뉴
+					<br>
+					자기소개 메뉴에는 서브메뉴로 나의어린시절, 현재의 나, 미래의 나로 구성
+					<br>
+					현재와 나 페이지는 자기소개 메뉴 페이지와 메인이며,
+					<br>
+					나의 어린시절 페이지와 미래의나로 페이지 추가하기.
+					 &nbsp;
+			    </p>
+				<p>
+					2. 시간표 메뉴
+					<br>
+					시간표 메뉴의 서브메뉴에는 2017년 1학기 시간표와 과목별 요약 페이지로 구성
+					<br>
+					2017년 1학기 시간표 페이지는 표 형식으로 구성
+					<br>
+					과목별 요약 페이지는 리스트를 이용하여 구성하기.
+				</p>
+			  
+		
+			</article>		   		   
+	</section>	
+	<div class="clear"></div>
+	
+	<footer>
+		<hr>
+        <div id="copyright">
+        All contents Copyright 2014 CakeWorld Inc. all rights reserved<br>
+        Contact mail : CakeWorld@cakeworldbiz.com Tel: +82 63 765 4321 Fax +82 61 765 4321
+        </div>
+        <div id="social">
+			<img src="img/facebook.gif" width="33" height="33" alt="Facebook"> 
+			<img src="img/twitter.gif" width="33" height="34" alt="Twitter">
+		</div>  
+	</footer>	
+</div>	
+</body>
+</html>

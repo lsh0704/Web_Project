@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>canvasex1</title>
+  <style>
+  #can1{border:1px dotted black;}
+  </style>
+ </head>
+ <body>
+  <canvas id="can1" width="800" height="800"></canvas>
+  <script>
+	var canvas = document.getElementById("can1");
+	var ctx = canvas.getContext("2d");//선
+	var cv = canvas.getContext("2d");//삼각형 
+
+ //1. 선
+	//표 11-3
+	//선 두께는 5, 선색은 녹색, 색채우기는 노랑
+	ctx.lineWidth=5;
+	ctx.strokeStyle="green";
+	ctx.fillStyle="yellow";
+
+	ctx.beginPath();//빈경로 만들기
+	ctx.moveTo(25,175);//경로에 새점을 만들기
+	ctx.lineTo(50,25);//경로의 끝점과 연결하는 선 추가
+	ctx.lineTo(125,50);
+	ctx.lineTo(175,175);
+	ctx.stroke();	//path에 집합된 모든 것을 그려라
+	/*lineTo 사용해서 선 추가하며 ppt 처럼 만들자*/
+
+	ctx.beginPath();
+	ctx.moveTo(220,175);
+	ctx.lineTo(245,25);
+	ctx.lineTo(320,50);
+	ctx.lineTo(370,175);
+	ctx.lineTo(220,172);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(410,175);
+	ctx.lineTo(435,25);
+	ctx.lineTo(510,50);
+	ctx.lineTo(560,175);
+	ctx.lineTo(410,172);
+	ctx.fill();
+	ctx.stroke();
+
+//2. 삼각형
+	cv.beginPath();
+	cv.moveTo(200,500);
+	cv.lineTo(0,450);
+	cv.lineTo(200,300);
+	cv.closePath();//그리기 종료
+	cv.fillStyle="blue";//삼각형에 채울 색
+	cv.fill();//삼각형 출력
+
+	cv.beginPath();
+	cv.moveTo(450,450);
+	cv.lineTo(150,500);
+	cv.lineTo(240,300);
+	cv.closePath();//그리기 종료
+	cv.fillStyle="red";//삼각형에 채울 색
+	cv.fill();//삼각형 출력
+  </script>
+ </body>
+</html>

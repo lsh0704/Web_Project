@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>photo3</title>
+
+  <script>
+  var newWin = null; //새로 연 윈도우 기억
+  function load(URL) {
+	 newWin = window.open(URL, "myWin", "");
+	 closeNewWindow();
+  }
+  function closeNewWindow() {
+	  var timerID = setTimeout("newWin.close()", 5000);
+  }
+
+  function History() {
+  }
+  </script>
+
+  <style>
+  body {
+  background-color : pink;
+  }
+  #title {
+  font-size : 30px;
+  }
+  hr {
+  border : 1px solid #D9418C;
+  }
+  a:visited {color : red;}
+  a:active {color : yellow;}
+  </style>
+ </head>
+ <body>
+	<center><p id="title">
+	<img src="doll.gif" width="40" border="0" alt="doll"
+		onmouseover = "this.src='doll_after.gif'"
+		onmouseout="this.src='doll.gif'">
+	포토 앨범
+	<img src="doll.gif" width="40" border="0" alt="doll"
+		onmouseover = "this.src='doll_after.gif'"
+		onmouseout="this.src='doll.gif'">
+	</p></center>
+
+	<hr>
+	<a href="javascript:load('flower.html')"><img src="Flower5.jpg" alt="Flower5"></a> Flower5
+	<hr>
+	<img src="Flower6.jpg" alt="Flower6"> Flower6
+	<hr>
+	
+	<footer><center>
+	<a href="photo1.html">1</a>
+	<a href="photo2.html">2</a>
+	<b>3</b>
+	</center></footer>
+ </body>
+</html>

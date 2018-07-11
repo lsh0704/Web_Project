@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>pie</title>
+ </head>
+ <body>
+ <h2>학점 별로 학생 수를 입력하면 파이 차트로 비율 그리기</h2>
+ <hr>
+ <form name="form1">
+ A <input type="number" value="0"> 명
+ B <input type="number" value="0"> 명
+ C <input type="number" value="0"> 명<br>
+ D <input type="number" value="0"> 명
+ F <input type="number" value="0"> 명
+ <input type="button" value="차트그리기" onclick="draw()">
+ </form>
+  <canvas id="canvas" width="700" height="700"
+  style="background-color:aliceblue"></canvas>
+
+  <script>
+	var colors = ["blue", "green", "yellow", "magenta", "red"];
+	var grades = ["A", "B", "C", "D", "F"];
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	context.font = "20px arial";
+	context.textAlign = "left";
+
+	function draw()
+	{	
+		var percent = new Array(5); //퍼센트
+		var sum=0; //총 학생 수
+		var degree = new Array(5); //각도
+
+		context.clearRect(0,0,canvas.width, canvas.height); // 차트 그리기 버튼을 누를 때마다 캔버스에 그려진 이전 차트를 지워야 한다
+
+		for (var i=0; i<5; i++)
+		{
+			percent[i]=parseInt(document.form1.elements[i].value);
+			sum+=percent[i]; //sum 구하기
+		}
+
+		for (i=0; i<5; i++) //퍼센트 구하기
+		{
+			if (sum==0)
+				percent[i]=0;
+			else
+				percent[i]=(document.form1.elements[i].value/sum)*100;
+		}
+
+		context.fillStyle = "blue"; //글자색
+		for (var i=0; i<5; i++)
+		{
+			context.fillText(grades[i]+" 학점"+Math.floor(percent[i])+"% : "+colors[i], 15,30+20*i);
+		}
+
+		for (i=0; i<5; i++) //각도 구하기
+		{
+			degree[i]=(360*(percent[i]/100))*Math.PI;
+			degree[i]/=180;
+		}
+
+		//A학점
+		context.beginPath();
+		context.moveTo(350,350);
+		context.arc(350,350,250,0,degree[0],false);
+		context.closePath();
+		context.fillStyle="blue";
+		context.fill();
+
+		//B학점
+		context.beginPath();
+		context.moveTo(350,350);
+		context.arc(350,350,250,degree[0],degree[0]+degree[1],false);
+		context.closePath();
+		context.fillStyle="green";
+		context.fill();
+
+		//C학점
+		context.beginPath();
+		context.moveTo(350,350);
+		context.arc(350,350,250,degree[0]+degree[1],degree[0]+degree[1]+degree[2],false);
+		context.closePath();
+		context.fillStyle="yellow";
+		context.fill();
+
+		//D학점
+		context.beginPath();
+		context.moveTo(350,350);
+		context.arc(350,350,250,degree[0]+degree[1]+degree[2],degree[0]+degree[1]+degree[2]+degree[3],false);
+		context.closePath();
+		context.fillStyle="magenta";
+		context.fill();
+
+		//F학점
+		context.beginPath();
+		context.moveTo(350,350);
+		context.arc(350,350,250,degree[0]+degree[1]+degree[2]+degree[3],degree[0]+degree[1]+degree[2]+degree[3]+degree[4],false);
+		context.closePath();
+		context.fillStyle="red";
+		context.fill();
+	}
+  </script>
+ </body>
+</html>
+
+

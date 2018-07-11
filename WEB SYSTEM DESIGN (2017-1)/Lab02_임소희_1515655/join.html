@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Join</title>
+
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+ </head>
+ <body bgcolor="#FFEBFE">
+ <p align="center">
+	<font color="blueviolet" size="4"><b>회원 정보 입력</b></font></p>
+	<hr color="red"></hr>
+
+	<form name=form1 action="survey.html" onsubmit="return gopage()">
+	<table width="900" height="35" border="1" cellpadding="5" align="center">
+		<tr>
+			<td colspan="4" bgcolor="#ffff00">필 수 사 항</td>
+		</tr>
+ 
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" size="10" autofocus required></td>
+		</tr>
+
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="password" placeholder="영문/숫자포함 8자이상" required></td>
+			<td>비밀번호 확인</td>
+			<td><input type="password" placeholder="비밀번호 다시 한번 확인" required></td>
+		</tr>
+
+		<tr>
+			<td>주민등록번호</td>
+			<td colspan="3"><input type="text" placeholder="주민번호 앞자리" pattern="\d{6}" required>
+			- <input type="password" placeholder="주민번호 뒷자리" pattern="\d{7}" required></td>			
+		</tr>
+
+		<tr>
+			<td>이름</td>
+			<td><input type="text" size="10" required></td>
+			<td>휴대폰번호</td>
+			<td><input type="tel" placeholder="000-0000-0000 형식" pattern="(010|011)-\d{3,4}-\d{4}" required></td>
+		</tr>
+
+		<tr>
+			<td>이메일</td>
+			<td colspan="3"><input type="text" required> @ <input type="text" id='ee' required>
+				<select id="ss">
+					<option>직접입력</option>
+					<option>naver.com</option>
+					<option>daum.net</option>
+					<option>nate.com</option>
+					<option>gmail.com</option>
+					<option>sookmyung.ac.kr</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>직업</td>
+			<td>
+				<select>
+					<option>학생</option>
+					<option>회사원</option>
+					<option>프로그래머</option>
+					<option>연구원</option>
+				</select>
+			</td>
+			<td>성별</td>
+			<td>
+				<input type="radio" name="sex" value="1"> 남자
+				<input type="radio" name="sex" value="2" checked> 여자 
+
+		</tr>
+
+
+		<tr>
+			<td colspan="4" bgcolor="#ffff00">선 택 사 항</td>
+		</tr>
+
+		<tr>
+			<td>메일/SMS 정보 수신</td>
+			<td colspan="3">
+				<input type="radio" name="delievery" value="1" checked> 수신
+				<input type="radio" name="delievery" value="2"> 수신거부
+			</td>
+		</tr>
+		
+		<tr>
+			<td>취미</td>
+			<td colspan="3">
+				<input type="checkbox" name="hobby" value="독서"/>독서&nbsp;&nbsp;
+				<input type="checkbox" name="hobby" value="게임"/>게임&nbsp;&nbsp;
+				<input type="checkbox" name="hobby" value="영화감상"/>영화감상&nbsp;&nbsp;
+				<input type="checkbox" name="hobby" value="음악감상"/>음악감상&nbsp;&nbsp;
+				<input type="checkbox" name="hobby" value="축구"/>축구&nbsp;&nbsp;
+				<input type="button" value="확인" onclick="check_hobby(this.form);" /> 
+			</td>
+		</tr>
+
+		<tr>
+			<td>관심 분야</td>
+			<td colspan="3">
+				<select size="5">
+					<option>선택하세요</option>
+					<option>분산 시스템</option>
+					<option>프로그래밍</option>
+					<option>컴퓨터 구조</option>
+					<option>인공지능</option>
+					<option>알고리즘</option>
+					<option>소프트웨어</option>
+					<option>데이터 베이스</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>자기 소개</td>
+			<td colspan="3">
+				<TEXTAREA ROWS="10" COLS="100" NAME="Intro" placeholder="자기를 소개 하는 글을 쓰세요"></TEXTAREA>
+			</td>
+		</tr>
+
+		<tr>
+			<td>첨부 파일 추가</td>
+			<td colspan="3">
+				<input type="file" id="myFile">
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="4">
+				<center>
+				<input type="submit" value="등록하기"/>&nbsp;&nbsp;
+				<input type="reset" value="취소하기">
+				</center>
+			</td>
+		</tr>
+
+
+		<script> 
+			/*이메일 목록 선택시 텍스트 필드에 나타나게 함*/
+			function dd() {$("#ee").val($('#ss').val());} 
+			$("#ss").change(dd);
+
+			/*체크박스 선택시 창 띄우기*/
+			function check_hobby()
+			{
+				var prt="";
+				for (i=0; i<form1.hobby.length; i++)
+				{
+					if (form1.hobby[i].checked == true)
+						prt = prt + form1.hobby[i].value + "\n";
+				}
+				alert(prt);
+			}
+
+			/*survey 페이지로 이동*/
+			function gopage()
+			{
+				document.form1.submit();
+			}
+		</script>
+	</form>
+</body>
+</html>
+

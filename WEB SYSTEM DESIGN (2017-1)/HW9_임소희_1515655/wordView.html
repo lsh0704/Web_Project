@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>단어장 만들기</title>
+  <style>
+  div{ background-color:aliceblue; width:200px; height:35px; }
+  .countst{ display:inline-block; margin:2px; /*padding:3px;*/ border:solid 1px #1DDB16; }
+  .keyst{ display:inline-block; font-weight:bold; text-align:center;  width:5em; }
+  .itemst{ margin:5px;}
+  </style>
+ </head>
+ <body>
+ <div id="wordPrint"></div>
+ 
+<script>
+	 window.onload=function() { wordPrint(); } //wordView.html 로딩되자마자 수행
+ 
+    var eng = document.getElementById("eng");
+    var kor = document.getElementById("kor");
+    var list = document.getElementById('wordPrint');
+    if (!window.localStorage)
+	{
+		alert("로컬스토리지를 지원하지 않습니다.");
+	}
+	var eng=document.getElementById("eng");
+	var kor=document.getElementById("kor");
+
+	function save() 
+	{
+		var had=localStorage.getItem(eng.value); //로컬스토리지 내의 영어단어
+		if (had==null) //로컬스토리지에 단어 없는 경우 저장
+		{
+			if (eng.value!="")
+			{
+				localStorage.setItem(eng.value, kor.value);
+				alert("단어가 저장되었습니다.");
+			}
+			else //영어 단어 입력하지 않은 경우
+			{
+				alert("입력된 단어가 없습니다. 다시 입력해주세요.");
+			}
+		}
+		else //로컬스토리지에 이미 존재하는 경우
+		{
+			var ans=confirm(eng.value+"가 이미 있습니다. 수정하시겠습니까?");
+			if (ans==1)
+			{
+				localStorage.setItem(eng.value, kor.value);
+			}
+			else {;}
+		}
+	}
+
+	function search()
+	{
+		var find=localStorage.getItem(eng.value);
+		if (!find)
+		{
+			alert(eng.value+"는 없는 단어입니다.");
+		}
+		else {	kor.value=find;	}
+	}
+
+	function wordDelete()
+	{
+		var had=localStorage.getItem(eng.value); //로컬스토리지 내의 영어단어
+		if (had!=null) //로컬스토리지에 단어 있는 경우
+		{
+			localStorage.removeItem(eng.value);
+			alert("단어가 삭제되었습니다.");
+		}
+		else //로컬스토리지에 없는 단어인 경우
+		{
+			alert(eng.value+"는 없는 단어입니다.");
+		}
+	}
+ 
+    function wordPrint(){
+        var str = '';
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+            str += '<span class="countst">'+(i+1)+'</span>'+
+			'<span class="keyst">'+localStorage.key(i)+'</span>'+
+			'<span class="itemst">'+localStorage.getItem(localStorage.key(i))+'</span>'+'<br>';
+			if (i>=1) //단어 추가될 때 마다 div height 늘리기
+			{
+				var worddiv = document.getElementById("wordPrint");
+				worddiv.style.height="120%";
+			}
+		}
+			 list.innerHTML = str;
+	}
+</script>
+ </body>
+</html>

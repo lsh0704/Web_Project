@@ -1,0 +1,132 @@
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>homeSnow</title>
+
+  <style>
+  body {
+  background-color : #489CFF;
+  }
+  .snowflake {
+  position:absolute;
+  width : 3;
+  color : white;
+  }
+  </style>
+
+<script language="javascript">
+snow =" * ";
+number = 30; //눈송이 개수 30개
+
+speed=1; angle=10; 
+movex = -speed/angle; movey = speed;
+
+
+	function fall() { //눈내리는 함수
+		for (move=0; move<number; move++)
+		{
+			xx[move]+=movex;
+			yy[move]+=mv[move];
+			hmm = Math.floor(Math.random()*1);
+
+			if(xx[move] < 0){xx[move] = maxx+10;}
+			if(yy[move] > maxy){yy[move] = 10;}
+			snowflake[move].left=xx[move];
+			snowflake[move].top=yy[move]+document.body.scrollTop;
+		}
+		setTimeout('fall()','1')
+	}
+	function b() {
+		//00월00일00요일 형식
+		//Date객체를 사용해서 월 일 요일 - 예제 7-5
+		var dt = new Date(); //현재 시간 값을 가진 Date 객체 생성
+		var day = dt.getDay()
+		var realday;
+		
+		//1-월, 2-화....6-토 0-일
+		if (day==1) {realday = "월"}
+		else if (day==2) {realday = "화"}
+		else if (day==3) {realday = "수"}
+		else if (day==4) {realday = "목"}
+		else if (day==5) {realday = "금"}
+		else if (day==6) {realday = "토"}
+		else if (day==0) {realday = "일"}
+
+		document.write(dt.getMonth()+1+"월 "+dt.getDate()+"일 "+realday+"요일");
+
+		//00월00일00요일 출력		
+	}
+	function a() {
+		//Date객체 사용
+		var c = new Date();
+		hour = c.getHours();
+
+		//시간을 가지고 판단
+		if (hour<=6) 
+		{
+			document.write("늦게까지 안주무시고 방문해 주셔서 감사합니다.<br>");
+		}
+		else if (hour<=12)
+		{
+			document.write("오늘도 즐거운 하루 되세요.<br>");
+		}
+		else if (hour<=13)
+		{
+			document.write("맛있는 점심식사 시간이네요.<br>");
+		}
+		else if (hour<=18)
+		{
+			document.write("언제나 저희 홈페이지에 방문해 주셔서 감사합니다.<br>");
+		}
+		else if (hour<=24)
+		{
+			document.write("오늘 하루 즐거우셨나요. 좋은 꿈 꾸세요.<br>");
+		}
+
+		//6 12 13 18 24인지 판단 -> 인사말 출력
+	}
+ </script>
+ </head>
+
+ <body onload="fall()">
+  <center>안녕하세요.<p>저의 홈페이지에 온 것을 환영합니다.<p>
+  <img src="snowp.jpg"><p>
+  <script language="javascript"> 
+
+	a(); //시간에 따라 인사말 보여주기
+
+	b(); //날짜표시
+
+	snowflake=new Array();
+	xx=new Array();
+	yy=new Array();
+	mv=new Array();
+	ly = "document.all[\'";
+	st = "\'].style"	
+
+	snowing();
+
+	function snowing() {
+
+		for (make=0; make<number; make++)
+		{
+			document.write('<div id="snowflake'+make+'" class=snowflake>'+snow+'</div>');
+			snowflake[make]=eval(ly+'snowflake'+make+st);
+			maxx=document.body.clientWidth-40;
+			maxy=document.body.clientHeight-40;
+			xx[make]=Math.random()*maxx;
+			yy[make]=-100-Math.random()*maxy;
+			snowflake[make].left=xx[make];
+			snowflake[make].top=yy[make];
+			mv[make]=(Math.random()*5)+speed/4;
+			snowflake[make].fontSize=35;
+		}
+	}
+  </script>
+  </center>
+ </body>
+</html>

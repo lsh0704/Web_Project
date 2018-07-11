@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Menu</title>
+  <style>
+	table {
+		text-align : center;
+		font-family : "Times New Roman";
+		font-weight : bold;
+		}
+  </style>
+ </head>
+ <script>
+	function over (obj) {
+		//backgroundColor 사용	--예지 9-1 참조
+		obj.style.backgroundColor='orchid'
+	}
+	function out (obj) {
+		//backgroundColor 사용
+		obj.style.backgroundColor='pink'
+	}
+ </script>
+ <body>
+	<table width=150>
+		<tr>
+			<td bgcolor="pink" onmouseover="over(this)"
+			onmouseout="out(this)"> HOME </td>
+		</tr>
+		<tr>
+			<td bgcolor="pink" onmouseover="over(this)"
+			onmouseout="out(this)"> 포토 앨범 </td>
+		</tr>
+		<tr>
+			<td bgcolor="pink" onmouseover="over(this)"
+			onmouseout="out(this)"> 회원 가입 </td>
+		</tr>
+		
+	</table>
+ </body>
+</html>

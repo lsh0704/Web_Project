@@ -1,0 +1,30 @@
+<html>
+ <head>
+  <!-- 자바스크립트 시작 -->
+	<script type="text/javascript">
+		function check(form1)
+		{
+			var prt="";
+			for (i=0; i<form1.hobby.length; i++)
+				if (form1.hobby[i].checked == true)
+					prt = prt + form1.hobby[i].value + "\n";
+			alert(prt);
+		}	
+	</script>
+  <!-- 자바스크립트 끝 -->
+ </head>
+ 
+<body>
+	<form name="form1">
+		checkbox객체 예제<br />
+
+		관심분야를 선택하세요<br /><br />
+		스포츠 <input type="checkbox" name="hobby" value="스포츠" /> &nbsp;&nbsp;
+		음악 <input type="checkbox" name="hobby" value="음악" /> &nbsp;&nbsp;
+		독서 <input type="checkbox" name="hobby" value="독서" /> &nbsp;&nbsp;
+		게임 <input type="checkbox" name="hobby" value="게임" /> &nbsp;&nbsp;
+		여행 <input type="checkbox" name="hobby" value="여행" /> <br />
+		<input type="button" value="확인" onclick="check(this.form);" />
+	</form>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자기소개</title>
+<style type="text/css">
+@font-face{
+	font-family: "NanumBrush";
+	src : url("font/NanumBrush.eot"); /* IE */
+	src:local('☺'), 
+	url("font/NanumBrush.woff") format("woff"), /* FF, CH */
+    url("font/NanumBrush.ttf") format("truetype"); /* FF, CH, SF, OP */
+}
+
+body{
+   background-image: url(img/back.png); /* 백그라운드 이미지를 지정 */
+   margin: 0;                           /* 바깥쪽 여백을 없앰 */
+   padding: 0;                          /* 안쪽 여백을 없앰 */
+   font-size: 0.75em;                   /* 글꼴 크기 */
+   line-height: 1.2em;                  /* 줄 간격 */
+   color: #333;                         /* 글꼴 색상 */
+   font-family: NanumBrush, 'Trebuchet MS', Verdana, Geneva, sans_serif;
+}
+
+#wrap{   
+   /* 1024 × 768 해상도에 맞추어 웹 페이지 크기 지정*/   
+   width : 971px; 
+   /* 백그라운드 이미지 적용 */
+   background-image: url(img/shadow.png);
+   background-repeat: repeat-y;
+   /* 중앙에 배치 */
+   margin: 0;
+   margin-right: auto; 
+   margin-left: auto;
+   text-align: left;               /*텍스트를 왼쪽에 배치*/
+   /* 페이지에 출력할 내용이 없어도 최소 높이는 780px */
+   min-height: 780px;
+}
+
+#title h1, #title h2{
+   display: none;                   /*헤드라인 숨김 */
+}
+
+#ceil{                              /* 웹 페이지를 상단에 이미지 출력 */
+   width: 952px;
+   height: 60px;
+   margin: 0 0 0 10px;
+   background-image: url(img/ceil.PNG);
+   background-repeat: repeat-x;    /*  가로 방향으로 반복 */
+} 
+ 
+#logo{                             /*  로고 이미지  */
+   float: left;                    /* 화면 왼쪽에 배치 */
+   width: 256px;
+   height: 100px;
+   margin: 20px 0 0 40px;
+}
+
+/*리스트로 메인 메뉴 만들기*/
+nav#top_menu{
+   float: left;
+   width: 600px;
+   margin-top: 20px;
+}
+
+nav#top_menu ul{
+   list-style-type: none;
+   font-size: 24px;
+   font-weight: bold;
+}
+
+nav#top_menu ul li{
+   float: left;
+   margin: 0 15px;
+}
+
+nav#top_menu a{
+   text-decoration: none;
+   color: #333;
+   display: block;
+   height: 20px;
+}
+
+nav#top_menu a:HOVER{
+   color: #FFB6C1;
+   font-size: 25px;
+}
+
+.clear{
+   clear: both;
+}
+
+/* 서브 메뉴  구성하기 */
+#sub_menu{
+	width: 238px;
+	float: left;
+	font-size: 1.7em;
+}
+
+#sub_menu ul{
+	list-style: none;
+	margin: 0 0 0 20px; /*상 좌*/
+}
+
+#sub_menu a{
+	text-decoration: none;
+	color: #666;
+	display: block;
+	height: 15px;
+	width: 150px;
+	padding: 7px;
+	border-bottom: 1px dotted #999;
+	background-image: url(img/bullet.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+#sub_menu a:HOVER {
+	color: #FFB6C1;
+	font-weight: bold;
+}
+
+/* 콘덴츠 설정하기 */
+#sub_section {	
+	float: right;
+	width: 650px;
+	padding-right: 30px;
+}
+
+#sub_section h1{
+	padding-left: 60px;
+	font-size: 50px;
+	color: #FFB6C1;
+	text-shadow:1px 1px 3px #000;
+}
+
+#sub_section h1:HOVER{
+	color: #CCC;
+}
+
+@font-face{
+	font-family: ROCK;
+	src: url('font/ROCK.TTF');
+}
+
+#sub_section article p{
+	font-family: ROCK, 'Trebuchet MS', Veridana, Geneva, sans_serif;
+	font-size: 1.2em;	
+	line-height: 1.5em;
+}
+
+figure.history{
+	float: right;
+	margin: 5px 5px 5px 15px;	
+}
+
+/* 푸터 */
+footer{
+	margin: 50px 0 0 0;
+	height: 80px;
+	background-image: url(img/footer_logo.PNG);
+	background-repeat: no-repeat;
+	background-position: 40px center;	
+}
+
+footer hr{
+	width: 900px;
+	margin: 0 0 0 10px;
+}
+
+footer #copyright{
+	font-family: NanumBrush, 'Trebuchet MS',Veridana, Geneva, sans_serif;
+	font-size: 18px;
+	width: 560px;
+	margin: 20px 0 0 220px;
+	float: left;
+}
+
+footer #social{
+	width: 130px;
+	margin: 20px 20px 0 0;
+	float: right;
+}
+
+footer #social img{
+	width: 33px;
+	height: 33px;
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<header id="sub_header">
+	    <div id="ceil"></div>
+		<div id="logo">
+			<a href="lab01_main.html"><img id="#" src="img/logo.PNG" width="240" height="80"></a>			
+		</div>
+		
+
+						
+		<nav id="top_menu">
+			<ul>
+				<li><a href="lab01_main.html">HOME</a></li>
+				<li><a href="introduce.html">자기소개</a></li>
+				<li><a href="timetable.html">시간표</a></li>
+			</ul>
+		</nav>
+	</header>		
+	<div class="clear"></div>
+	
+	<nav id="sub_menu">
+		<ul>		
+			<li><a href="introduce.html">현재의 나</a></li>
+		</ul>
+	</nav>
+
+
+	<section id="sub_section">
+
+	<script>
+		function show() { // <img>에 이미지 달기
+			document.getElementById("fig").src = "img/character_new12.gif";
+		}
+		function hide() { // <img>에 이미지 제거
+			document.getElementById("fig").src= "";	
+		}
+	</script>
+
+	<body>
+	<h1 onmouseover="show()" onmouseout="hide()"><<나의 프로필>></h1>
+	
+	<div><img id="fig" src=""></div> 
+	<article>
+		   		<figure class="history">
+		   			</figure>
+			    
+			    <p>&nbsp;
+				    <li>이름 : 임소희
+					<li>학과 : 소프트웨어학부
+					<li>출생지 : 대구
+					<li>생년월일 : 94년 7월 4일
+					<li>가족관계 : 부모님, 여동생
+					<li>좋아하는 색 : 파랑색
+					<img src="img/blue.png" width="25" height="8" alt="색">
+					<hr>
+					 &nbsp;
+			    </p>
+	<h1><<나의 취미>></h1>
+
+	<img src="img/character_new03.gif" alt="눈송이3">
+	<br><img src="img/character_new05.gif" alt="눈송이5">
+
+	 <p>&nbsp;
+				    <li>피겨스케이팅 관람
+					<ol type="I">
+					<li><img src="img/김연아.jpg" width="115" height="169" alt="연아1">
+					<li><img src="img/김연아2.jpg" width="145" height="192.25" alt="연아2">
+					<li><img src="img/김연아3.png" width="112.5" height="175.75" alt="연아3">
+					</ol>
+					 &nbsp;
+			    </p>
+
+	</article>
+	</section>
+
+	<div class="clear"></div>
+	
+	<footer>
+		<hr>
+        <div id="copyright">
+        All contents Copyright 2014 CakeWorld Inc. all rights reserved<br>
+        Contact mail : CakeWorld@cakeworldbiz.com Tel: +82 63 765 4321 Fax +82 61 765 4321
+        </div>
+        <div id="social">
+			<img src="img/facebook.gif" width="33" height="33" alt="Facebook"> 
+			<img src="img/twitter.gif" width="33" height="34" alt="Twitter">
+		</div>  
+	</footer>	
+</div>	
+</body>
+</html>

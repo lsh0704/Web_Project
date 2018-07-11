@@ -1,0 +1,34 @@
+<!doctype html>
+ <head>
+  <meta charset="UTF-8">
+  <title>starPrinting</title>
+ </head>
+ <body>
+ <script>
+	var n=prompt("정수를 입력하세요.", "");
+	printStar(); //함수 printStar() 호출
+
+	function printStar()
+	{
+		var m=parseInt(n); //문자열을 숫자로 바꿈
+
+		if (isNaN(m)==true) //m이 입력 오류인지 확인하기 (if) -- isNaN() || m양의 정수를 확인
+		{
+			document.write("입력 오류입니다.");
+		}
+		else //별 출력 -- for문 사용해서 *을 출력 (document.write)
+		{
+			var i, j;
+			for (i=1; i<=m; i++)
+			{
+				for (j=1; j<=i; j++)
+				{
+					document.write("*");
+				}
+				document.write("<br>");
+			}
+		}
+	}
+</script>
+ </body>
+</html>

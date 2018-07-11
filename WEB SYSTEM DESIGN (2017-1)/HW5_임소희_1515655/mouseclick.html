@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스 클릭 연습</title>
+<style>
+table {
+	border : 1px solid blue;
+	border-collapse : collapse; 
+}
+td {
+	border : 1px solid blue;
+	width : 50px;
+	height : 50px;
+	padding : 0px;
+}
+</style>
+<script>
+var select=0; // 선택된 셀
+var img = new Image();
+img.src="donkey.png"; // donkey.png는 45x45 크기. 미리 로딩
+
+
+//<img> 태그 중에서 한 개를 랜덤하게 선택하고 이곳에 donkey.png 이미지 출력
+function set() { 
+	for(var i=0;i<100;i++) {	// for문을 사용하여 100개의 이미지에 모두 click 리스너 등록
+		document.images[i].onclick=onload;
+	}
+
+	moveImage(); // 셀을 선택하고 이미지 출력
+}
+
+// <img> 태그의 click 리스너
+function moveImage() { // 다른 셀로 이미지를 옮긴다.
+	// 현재 <img>의 이미지를 제거
+	document.images[select].src="";
+	// 0~99 사이의 랜덤한 셀 선택
+	select=Math.floor(100*Math.random());
+	// 새로 선택된 셀에 이미지 출력
+	document.images[select].src="donkey.png";
+}
+</script>
+</head>
+<body onload="set()">
+<h3>마우스 클릭 연습</h3>
+<hr>
+<table>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+<tr><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td>
+<td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td><td><img src=""></td></tr>
+</table>
+</body>
+</html>

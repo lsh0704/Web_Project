@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>canvasex2</title>
+ </head>
+ <body>
+  <canvas id="canvas" width="500" height="500"
+  style="border:solid 1px black"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");//원
+//예제 11-7 참고
+	context.beginPath();//빈경로 만들기
+	context.arc(250,250,200,0,360*Math.PI/180,false);
+	context.stroke();//선출력
+	
+	context.beginPath();//빈경로 만들기
+	context.moveTo(200,175);
+	context.arc(150,175,50,0,360*Math.PI/180,false);
+	context.closePath();//선출력
+	context.fillStyle="blue";
+	context.fill();
+	context.strokeStyle="black";
+	context.lineWidth=1;
+	context.stroke();
+
+
+	context.beginPath();//빈경로 만들기
+	context.moveTo(400,175);
+	context.arc(350,175,50,0,360*Math.PI/180,false);
+	context.closePath();//선출력
+	context.fillStyle="yellow";
+	context.fill();
+	context.strokeStyle="black";
+	context.lineWidth=1;
+	context.stroke();
+
+	context.beginPath();//빈경로 만들기
+	context.moveTo(250,300);
+	context.arc(250,300,130,0,180*Math.PI/180,false);
+	context.closePath();//선출력
+	context.fillStyle="red";
+	context.fill();
+	context.strokeStyle="black";
+	context.lineWidth=1;
+	context.stroke();
+
+
+
+  </script>
+ </body>
+</html>

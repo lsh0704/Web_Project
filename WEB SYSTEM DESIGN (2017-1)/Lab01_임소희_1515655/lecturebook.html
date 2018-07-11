@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>과목별 요약</title>
+
+<style type="text/css">
+
+#noonsong {
+	list-style-image : url("img/ul.gif");
+}
+
+@font-face{
+	font-family: "NanumBrush";
+	src : url("font/NanumBrush.eot"); /* IE */
+	src:local('☺'), 
+	url("font/NanumBrush.woff") format("woff"), /* FF, CH */
+    url("font/NanumBrush.ttf") format("truetype"); /* FF, CH, SF, OP */
+}
+
+body{
+   background-image: url(img/back.png); /* 백그라운드 이미지를 지정 */
+   margin: 0;                           /* 바깥쪽 여백을 없앰 */
+   padding: 0;                          /* 안쪽 여백을 없앰 */
+   font-size: 0.75em;                   /* 글꼴 크기 */
+   line-height: 1.2em;                  /* 줄 간격 */
+   color: #333;                         /* 글꼴 색상 */
+   font-family: NanumBrush, 'Trebuchet MS', Verdana, Geneva, sans_serif;
+}
+
+#wrap{   
+   /* 1024 × 768 해상도에 맞추어 웹 페이지 크기 지정*/   
+   width : 971px; 
+   /* 백그라운드 이미지 적용 */
+   background-image: url(img/shadow.png);
+   background-repeat: repeat-y;
+   /* 중앙에 배치 */
+   margin: 0;
+   margin-right: auto; 
+   margin-left: auto;
+   text-align: left;               /*텍스트를 왼쪽에 배치*/
+   /* 페이지에 출력할 내용이 없어도 최소 높이는 780px */
+   min-height: 780px;
+}
+
+#title h1, #title h2{
+   display: none;                   /*헤드라인 숨김 */
+}
+
+#ceil{                              /* 웹 페이지를 상단에 이미지 출력 */
+   width: 952px;
+   height: 60px;
+   margin: 0 0 0 10px;
+   background-image: url(img/ceil.PNG);
+   background-repeat: repeat-x;    /*  가로 방향으로 반복 */
+} 
+ 
+#logo{                             /*  로고 이미지  */
+   float: left;                    /* 화면 왼쪽에 배치 */
+   width: 256px;
+   height: 100px;
+   margin: 20px 0 0 40px;
+}
+
+/*리스트로 메인 메뉴 만들기*/
+nav#top_menu{
+   float: left;
+   width: 600px;
+   margin-top: 20px;
+}
+
+nav#top_menu ul{
+   list-style-type: none;
+   font-size: 24px;
+   font-weight: bold;
+}
+
+nav#top_menu ul li{
+   float: left;
+   margin: 0 15px;
+}
+
+nav#top_menu a{
+   text-decoration: none;
+   color: #333;
+   display: block;
+   height: 20px;
+}
+
+nav#top_menu a:HOVER{
+   color: #FFB6C1;
+   font-size: 25px;
+}
+
+.clear{
+   clear: both;
+}
+
+/* 서브 메뉴  구성하기 */
+#sub_menu{
+	width: 238px;
+	float: left;
+	font-size: 1.7em;
+}
+
+#sub_menu ul{
+	list-style: none;
+	margin: 0 0 0 20px; /*상 좌*/
+}
+
+#sub_menu a{
+	text-decoration: none;
+	color: #666;
+	display: block;
+	height: 15px;
+	width: 150px;
+	padding: 7px;
+	border-bottom: 1px dotted #999;
+	background-image: url(img/bullet.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+#sub_menu a:HOVER {
+	color: #FFB6C1;
+	font-weight: bold;
+}
+
+/* 콘덴츠 설정하기 */
+#sub_section {	
+	float: right;
+	width: 650px;
+	padding-right: 30px;
+}
+
+#sub_section h1{
+	padding-left: 60px;
+	font-size: 50px;
+	color: #FFB6C1;
+	text-shadow:1px 1px 3px #000;
+}
+
+#sub_section h1:HOVER{
+	color: #CCC;
+}
+
+@font-face{
+	font-family: ROCK;
+	src: url('font/ROCK.TTF');
+}
+
+#sub_section article p{
+	font-family: ROCK, 'Trebuchet MS', Veridana, Geneva, sans_serif;
+	font-size: 1.2em;	
+	line-height: 1.5em;
+}
+
+figure.history{
+	float: right;
+	margin: 5px 5px 5px 15px;	
+}
+
+/* 푸터 */
+footer{
+	margin: 50px 0 0 0;
+	height: 80px;
+	background-image: url(img/footer_logo.PNG);
+	background-repeat: no-repeat;
+	background-position: 40px center;	
+}
+
+footer hr{
+	width: 900px;
+	margin: 0 0 0 10px;
+}
+
+footer #copyright{
+	font-family: NanumBrush, 'Trebuchet MS',Veridana, Geneva, sans_serif;
+	font-size: 18px;
+	width: 560px;
+	margin: 20px 0 0 220px;
+	float: left;
+}
+
+footer #social{
+	width: 130px;
+	margin: 20px 20px 0 0;
+	float: right;
+}
+
+footer #social img{
+	width: 33px;
+	height: 33px;
+}
+</style>
+
+<script>
+	function show() { // <img>에 이미지 달기
+		document.getElementById("fig").src = "delete/character.GIF"
+	}
+	function hide() { // <img>에 이미지 제거
+		document.getElementById("fig").src= "";	
+	}
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<header id="sub_header">
+	    <div id="ceil"></div>
+		<div id="logo">
+			<a href="lab01_main.html"><img id="#" src="img/logo.PNG" width="240" height="80"></a>			
+		</div>
+		
+
+						
+		<nav id="top_menu">
+			<ul>
+				<li><a href="lab01_main.html">HOME</a></li>
+				<li><a href="introduce.html">자기소개</a></li>
+				<li><a href="timetable.html">시간표</a></li>
+			</ul>
+		</nav>
+	</header>		
+	<div class="clear"></div>
+	
+	<nav id="sub_menu">
+		<ul>
+			<li><a href="timetable.html">2017학년 1학기 시간표</a></li>
+			<li><a href="lecturebook.html">과목별 요약</a></li>
+		</ul>
+	</nav>
+
+
+	<section>
+		<figure class="history">
+		   			
+		<h1>웹시스템설계</h1>
+		<ul id = "noonsong">
+			<li>김윤희 교수님</li>
+			<li>인터넷 상에서 실용적으로 사용될 수 있는 웹 소프트웨어 개발 능력 배양을 목표로 한다.</li>
+			<li>웹 문서의 저장에서 시작하여 멀티미디어를 포함하는 동저긴 웹 문서의 저장, 사용자의 입력을 처리하는 기술, 웹 브라우저를 통해 실행될 수 있는<br>서버 프로그램 개발 등을 java언어를 이용하여 학습한다.</li>
+		</ul>
+		&nbsp;
+		<h1>운영체제</h1>
+		<ul id = "noonsong">
+			<li>김주균 교수님</li>
+			<li>Computer System의 구조와 조직을 이해하고 Operating System의 기초와 설계능력을 배양함으로<br>Hardware Rosource의 효율적인 운영과 사용자에게 최대의 편의를 줄 수 있는 최적의 Operating System의 구성 방안을 연구한다.</li>			
+		</ul>
+		&nbsp;
+		<h1>프로그래밍언어론</h1>
+		<ul id = "noonsong">
+			<li>창병모 교수님</li>
+			<li>여러 유형의 프로그래밍 언어를 구조, 의미론, 활용성 등의 관점에서 비교 분석하고, 프로그래밍 언어의 구문법과 설계 및 구현 원리 등을 학습한다.</li>			
+		</ul>
+		&nbsp;
+		<h1>인문계학생들을위한에너지환경공학</h1>
+		<ul id = "noonsong">
+			<li>류원희 교수님</li>
+			<li>에너지/환경공학을 개괄적으로 파악하여 다양한 인문학 전공분야 학생들이 에너지/환경분야를 각각의 전공분야에 접목할 수 있는 기초이론을 습득한다.</li>	
+		</ul>
+		&nbsp;
+		<h1>생활속면역의이해</h1>
+		<ul id = "noonsong">
+			<li>김경은 교수님</li>
+			<li>건강을 지키고유지하는 데 필수적인 "면역력"을 보다 쉽게 이해하고, 생활속에서 면역력을높일 수 있는 생활 습관, 식습관 등을 알아보고자 한다.</li>	
+			<li>면역 관련된 질환을 학습함으로써 생활 속에서 접할 수 있는 질환에 대처할 수 있는 기본적인 지식을 쉽게 습득할 수 있는 과목이다.</li>
+		</ul>
+		&nbsp;
+		<h1>일본어1</h1>
+		<ul id = "noonsong">
+			<li>은수희 교수님</li>
+			<li>일본어의 쓰기와 읽기에서부터 시작하여 일본어의 실용적인 기초실력 배양에 중점을 두고 있다.</li>	
+		</ul>
+
+
+		</figure>
+	</section>
+
+	<div class="clear"></div>
+	
+	<footer>
+		<hr>
+        <div id="copyright">
+        All contents Copyright 2014 CakeWorld Inc. all rights reserved<br>
+        Contact mail : CakeWorld@cakeworldbiz.com Tel: +82 63 765 4321 Fax +82 61 765 4321
+        </div>
+        <div id="social">
+			<img src="img/facebook.gif" width="33" height="33" alt="Facebook"> 
+			<img src="img/twitter.gif" width="33" height="34" alt="Twitter">
+		</div>  
+	</footer>	
+</div>	
+</body>
+</html>
+
+
+
+
+
+
+
+
